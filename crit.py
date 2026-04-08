@@ -38,7 +38,6 @@ class CRIT():
             "video": [],
             "scientific_paper": []
         }
-        print(f"Mode: {self.mode}")
         for split, data in self.dataset_split.items():
             for item in data:
                 context = item["context"]

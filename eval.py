@@ -361,6 +361,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_name_of_path", type=str, required=True)
     parser.add_argument("--use_cot", action="store_true")
     parser.add_argument("--use_vllm", action="store_true")
+    parser.add_argument("--use_crit_model", action="store_true")
 
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--max_new_tokens", type=int, default=256)
