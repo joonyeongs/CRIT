@@ -1,0 +1,64 @@
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.leaderboard-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Matches second image convention */
+.leaderboard-table tr.proprietary {
+  background-color: #eef6ff;   /* light blue */
+}
+
+.leaderboard-table tr.open-source {
+  background-color: #f3eefb;   /* light purple */
+}
+
+/* Emphasized rows (e.g., CRIT models) */
+.leaderboard-table tr.fine-tuned {
+  background-color: #fff4d6;   /* light yellow */
+}
+
+
+.leaderboard-legend {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.legend-pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Color scheme aligned with reference leaderboard */
+.legend-pill.fine-tuned {
+  background-color: #fff4d6;
+  color: #6b4e00;
+}
+
+.legend-pill.open-source {
+  background-color: #f3eefb;
+  color: #4b3b7a;
+}
+
+.legend-pill.proprietary {
+  background-color: #eef6ff;
+  color: #1f4fd8;
+}

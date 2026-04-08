@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CRIT: Graph-Based Automatic Data Synthesis to Enhance Cross-Modal Multi-Hop Reasoning">
+  <meta name="keywords" content="LCIRC, QD-LCIRC, long-form context">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRIT: Graph-Based Automatic Data Synthesis to Enhance Cross-Modal Multi-Hop Reasoning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <link rel="stylesheet" href="./static/css/examples.css">
+  <link rel="icon" href="./static/images/favicon.png"> 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/examples.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+  <!-- KaTex -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ]
+      });
+    });
+  </script>
+
+  <!-- KaTex -->
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CRIT: Graph-Based Automatic Data Synthesis to Enhance Cross-Modal Multi-Hop Reasoning</h1>
+          <div class="is-size-3 publication-authors">
+            <img src="./static/images/cvpr_logo.png" alt="NAACL Logo" style="height: 40px; vertical-align: middle;">
+            <b>CVPR 2026</b>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Junyoung Sung<sup>1</sup>,</span>
+            <span class="author-block">Seungwoo Lyu<sup>1</sup>,</span>
+            <span class="author-block">Minjun Kim<sup>1</sup>,</span>
+            <span class="author-block">Sumin An<sup>1</sup>,</span>
+            <span class="author-block">Arsha Nagrani<sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://phseo.github.io/">Paul Hongsuck Seo</a><sup>1,&dagger;
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Korea University,</span>
+            <span class="author-block"><sup>2</sup>Google Deepmind</span>
+            <span class="eql-cntrb"><small><br><sup>&dagger;</sup>Co-corresponding Authors</small></span>
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <a href="https://www.korea.edu/sites/en/index.do" target="_blank">
+              <img src="./static/images/ku-logo.png" alt="korea" style="height: 50px; margin-right: 60px;">
+            </a>
+            <a href="https://miil.korea.ac.kr/" target="_blank">
+              <img src="./static/images/miil.png" alt="miil" style="height: 54px; margin-right: 50px;">
+            </a>
+            <img src="./static/images/Google_2015_logo.svg.webp" alt="google" style="height: 50px;">
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2604.01634"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.06139"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://github.com/joonyeongs/CRIT"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/KU-MIIL/CRIT"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
+                         alt="Hugging Face" style="width: 20px; height: 20px;">
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Real-world reasoning often requires combining information across modalities, connecting textual context with visual cues in a multi-hop process. 
+            Yet, most multimodal benchmarks fail to capture this ability: they typically rely on single images or set of images, where answers can be inferred from a single modality alone. 
+            This limitation is mirrored in the training data, where interleaved image–text content rarely enforces complementary, multi-hop reasoning. 
+            As a result, Vision-Language Models (VLMs) frequently hallucinate and produce reasoning traces poorly grounded in visual evidence. 
+          </p>
+          <p>
+            To address this gap, we introduce CRIT, a new dataset and benchmark built with a graph-based automatic pipeline for generating complex cross-modal reasoning tasks. 
+            CRIT consists of diverse domains ranging from natural images, videos, and text-rich sources, and includes a manually verified test set for reliable evaluation. 
+            Experiments on this benchmark reveal that even state-of-the-art models struggle on such reasoning tasks. 
+            Models trained on CRIT show significant gains in cross-modal multi-hop reasoning, including strong improvements on SPIQA and other multi-image benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Overview -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Overview</h2>
+        <img src="./static/images/overview.jpg" class="center"/>
+        <div class="content has-text-justified">
+          <p>
+            <b>Example from CRIT</b>
+            The CRIT dataset is designed to train and evaluate cross-modal multi-hop reasoning over interleaved image-text contexts. 
+            Each example combines multiple textual and visual sources that must be jointly interpreted to answer a compositional question. 
+            The colored highlights in the text indicate distinct evidence segments contributing to the reasoning chain, while the numbered boxes in the images and text correspond to the multi-step inference process outlined in the Chain of Thoughts panel. 
+            Together, they illustrate how CRIT requires connecting dispersed clues across modalities to reach a grounded answer.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Data Generation Pipeline</h2>
+        <img src="./static/images/pipeline.jpg" class="center"/>
+        <div class="content has-text-justified">
+          <p>
+            <b>Overall Process of Cross-Modal Multi-Hop QA Generation.</b>
+            The procedure consists of three main stages. 
+            <strong>(1) Multimodal Content Graph Construction:</strong> images annotated with scene graphs are sampled (a), unique entities are filtered and merged (b), and text nodes connected with edges are generated via LLM prompting (c, d). 
+            <strong>(2) Textual Context Generation:</strong> subgraphs are extracted from the multimodal content graph (e) to produce complementary textual descriptions (f). 
+            <strong>(3) Question–Answer Generation:</strong> subgraphs are further sampled (g) to generate QA pairs requiring cross-modal multi-hop reasoning (h). Orange and yellow circular nodes represent visual entities originating from different images, while blue square nodes denote text nodes. 
+            Entities with identical names are distinguished by numerical subscripts (e.g., <em>apple_1</em>, <em>apple_2</em>).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Leaderboard on CRIT</h2>
+        <div class="content has-text-justified">
+          <p>
+            The table compares proprietary models, open-source models, and models fine-tuned on CRIT across three domains: natural images (NI), video frames (VF), and scientific papers (SP). 
+            Models fine-tuned on CRIT are indicated by the “CRIT” subscript in their model names and highlighted rows. 
+            # Params denotes the number of model parameters. 
+            Models are sorted in descending order by overall F1 score averaged across all CRIT domains. 
+            All results are reported with chain-of-thought (CoT) prompting enabled.
+          </p>
+        </div>
+        <div class="leaderboard-legend" style="justify-content: center; text-align: center; margin-bottom: 20px;">
+          <span class="legend-pill proprietary">Proprietary</span>
+          <span class="legend-pill open-source">Open-Source</span>
+          <span class="legend-pill fine-tuned">Fine-Tuned on CRIT</span>
+        </div>
+
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Model</th>
+              <th rowspan="2"># Params</th>
+              <th colspan="2">Overall</th>
+              <th colspan="2">NI</th>
+              <th colspan="2">VF</th>
+              <th colspan="2">SP</th>
+            </tr>
+            <tr>
+              <th>EM</th>
+              <th>F1 <i class="fas fa-arrow-down"></i></th>
+              <th>EM</th>
+              <th>F1</th>
+              <th>EM</th>
+              <th>F1</th>
+              <th>EM</th>
+              <th>F1</th>
+            </tr>
+          </thead>
+          
+
+          <tbody>
+            <tr class="fine-tuned">
+                <td>Qwen2.5-VL<sub>CRIT</sub></td>
+                <td>7B</td>
+                <td>43.9</td>
+                <td>46.7</td>
+                <td>58.6</td>
+                <td>59.5</td>
+                <td>38.8</td>
+                <td>42.2</td>
+                <td>15.9</td>
+                <td>22.5</td>
+            </tr>
+
+            <tr class="fine-tuned">
+              <td>Idefics2<sub>CRIT</sub></td>
+              <td>8B</td>
+              <td>38.9</td>
+              <td>41.9</td>
+              <td>54.1</td>
+              <td>54.9</td>
+              <td>31.2</td>
+              <td>33.9</td>
+              <td>12.3</td>
+              <td>20.2</td>
+            </tr>
+
+            <tr class="proprietary">
+              <td>GPT-4o</td>
+              <td>-</td>
+              <td>28.0</td>
+              <td>32.3</td>
+              <td>35.1</td>
+              <td>37.7</td>
+              <td>32.0</td>
+              <td>38.9</td>
+              <td>8.4</td>
+              <td>14.0</td>
+            </tr>
+
+            <tr class="open-source">
+              <td>Qwen2.5-VL</td>
+              <td>72B</td>
+              <td>29.4</td>
+              <td>31.7</td>
+              <td>38.0</td>
+              <td>39.4</td>
+              <td>30.1</td>
+              <td>33.9</td>
+              <td>9.4</td>
+              <td>12.3</td>
+            </tr>
+            
+            <tr class="proprietary">
+              <td>Gemini 2.0 Flash</td>
+              <td>-</td>
+              <td>25.9</td>
+              <td>28.8</td>
+              <td>30.4</td>
+              <td>32.7</td>
+              <td>30.6</td>
+              <td>35.3</td>
+              <td>11.5</td>
+              <td>13.7</td>
+            </tr>
+
+            <tr class="open-source">
+              <td>LLaVA-OneVision</td>
+              <td>7B</td>
+              <td>25.8</td>
+              <td>28.0</td>
+              <td>31.0</td>
+              <td>32.0</td>
+              <td>33.3</td>
+              <td>37.4</td>
+              <td>7.1</td>
+              <td>10.1</td>
+            </tr>
+
+            <tr class="open-source">
+              <td>Intern2.5-VL</td>
+              <td>8B</td>
+              <td>22.4</td>
+              <td>25.2</td>
+              <td>26.7</td>
+              <td>27.9</td>
+              <td>30.1</td>
+              <td>34.8</td>
+              <td>5.5</td>
+              <td>9.8</td>
+            </tr>
+
+            <tr class="proprietary">
+              <td>GPT-4o-mini</td>
+              <td>-</td>
+              <td>22.0</td>
+              <td>24.3</td>
+              <td>24.7</td>
+              <td>25.5</td>
+              <td>28.7</td>
+              <td>33.3</td>
+              <td>9.7</td>
+              <td>13.1</td>
+            </tr>
+
+            <tr class="open-source">
+              <td>Qwen2.5-VL</td>
+              <td>7B</td>
+              <td>22.2</td>
+              <td>24.2</td>
+              <td>28.3</td>
+              <td>29.1</td>
+              <td>24.0</td>
+              <td>27.8</td>
+              <td>6.8</td>
+              <td>9.6</td>
+            </tr>
+
+            <!-- Open-source models -->
+            <tr class="open-source">
+              <td>Phi-3.5-Vision</td>
+              <td>4B</td>
+              <td>17.7</td>
+              <td>19.7</td>
+              <td>21.5</td>
+              <td>23.0</td>
+              <td>24.0</td>
+              <td>26.5</td>
+              <td>3.1</td>
+              <td>5.9</td>
+            </tr>
+
+
+            <tr class="open-source">
+              <td>Idefics2</td>
+              <td>8B</td>
+              <td>15.2</td>
+              <td>17.3</td>
+              <td>18.3</td>
+              <td>18.9</td>
+              <td>20.2</td>
+              <td>25.2</td>
+              <td>3.4</td>
+              <td>6.1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Examples</h2>
+
+    <div class="example-carousel">
+      <button class="carousel-btn left" id="prevExample">&#10094;</button>
+
+      <div class="carousel-window">
+        <img id="carouselImage"
+             src="./static/images/examples/example1.jpg"
+             alt="CRIT Example">
+      </div>
+
+      <button class="carousel-btn right" id="nextExample">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{sung2026critgraphbasedautomaticdata,
+      title={CRIT: Graph-Based Automatic Data Synthesis to Enhance Cross-Modal Multi-Hop Reasoning}, 
+      author={Junyoung Sung and Seungwoo Lyu and Minjun Kim and Sumin An and Arsha Nagrani and Paul Hongsuck Seo},
+      year={2026},
+      eprint={2604.01634},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2604.01634}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

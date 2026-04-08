@@ -1,0 +1,34 @@
+.example-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between arrows and image */
+  margin-top: 30px;
+}
+
+.carousel-window {
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.carousel-window img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
